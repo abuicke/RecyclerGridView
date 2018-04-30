@@ -1,10 +1,11 @@
-package ie.moses.recyclergridview
+package ie.moses.recyclergridview.test
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
+import ie.moses.recyclergridview.R
 import kotlinx.android.synthetic.main.friend_view.view.*
 
 class FriendView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {

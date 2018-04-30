@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ie.moses.recyclergridview.FriendView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:gravity="center" />
+    android:padding="6dp">
+
+    <ie.moses.recyclergridview.test.FriendView
+        android:id="@+id/friendView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal" />
+</FrameLayout>
