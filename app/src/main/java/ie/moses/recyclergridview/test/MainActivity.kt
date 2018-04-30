@@ -33,13 +33,19 @@ class MainActivity : AppCompatActivity() {
         )
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = FriendsListAdapter(this, data, object : OnItemClickListener {
+        val adapter = FriendsListAdapter(this, recyclerView, data, object : OnItemClickListener {
             override fun onItemClick(index: Int) {
                 toast("Selected " + data[index].first)
             }
         })
-        adapter.rowSize = 2
         recyclerView.adapter = adapter
+
+        Thread(Runnable {
+            for (i in 1..5) {
+                Thread.sleep(2000)
+                runOnUiThread({ adapter.rowSize = i })
+            }
+        }).start()
     }
 
 }

@@ -10,8 +10,8 @@ import ie.moses.recyclergridview.R
 import ie.moses.recyclergridview.core.GridRecyclerViewAdapter
 import ie.moses.recyclergridview.core.OnItemClickListener
 
-class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
-        GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, data, listener) {
+class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
+        GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, recyclerView, data, listener) {
 
     companion object {
         private val TAG = FriendsListAdapter::class.simpleName
@@ -23,9 +23,6 @@ class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, lis
         return ViewHolder(layout)
     }
 
-    /**
-     * TODO: Add resetBoundView type method for cases such as the visibility like this. Should it be part of the top most parent class?
-     * */
     override fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int) {
         val friendView = rowHolder.views[column]
         friendView.visibility = View.VISIBLE
@@ -45,7 +42,6 @@ class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, lis
         internal val views = ArrayList<FriendView>(rowSize)
 
         init {
-            Log.i("mo", "row size = $rowSize")
             for (i in 0 until rowSize) {
                 @LayoutRes val gridItemId = R.layout.grid_item
                 val gridItem = inflater.inflate(gridItemId, itemView, false)
