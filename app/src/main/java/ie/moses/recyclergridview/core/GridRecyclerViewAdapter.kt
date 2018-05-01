@@ -23,10 +23,6 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
             notifyDataSetChanged()
         }
 
-    /**
-     * TODO: What to do when the client wants to make is the the viewType, e.g. maybe every second
-     * row should be different, e.g. one profile pic every other row then the normal row size for the others.
-     * */
     protected abstract fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder
 
     protected abstract fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
@@ -36,15 +32,21 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
     protected open fun getRowItemType(position: Int) = 0
 
     /**
-     * TODO: Number type conversions are bullshit.
+     * TODO: There are situations where through no fault of the clients -1 is returned. What to do about long to int conversion?
      * */
-    final override fun getItemViewType(position: Int): Int =
-            Cantor.pair(rowSize.toLong(), getRowItemType(position).toLong()).toInt()
+    final override fun getItemViewType(position: Int): Int {
+        val cantorValue = Cantor.pair(rowSize.toLong(), getRowItemType(position).toLong())
+        return if (cantorValue != cantorValue.toInt().toLong()) {
+            cantorValue.toInt()
+        } else {
+            -1
+        }
+    }
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         /**
-         * TODO: All these number type conversaions are retarded and can I override first and second
-         * fields in Pair?
+         * TODO: Cantor depairing is messy, needs to be cleaned up, probably shouldn't be using
+         * Pair as Pair.second is ambiguous.
          * */
         return onCreateRowViewHolder(parent, Cantor.depair(viewType.toLong()).second.toInt())
     }
@@ -60,9 +62,6 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
         }
     }
 
-    /**
-     * TODO: Test to see of both these have to be doubles.
-     * */
-    final override fun getItemCount(): Int = (data.size.toDouble() / rowSize.toDouble()).roundUp()
+    final override fun getItemCount() = (data.size.toDouble() / rowSize).roundUp()
 
 }
