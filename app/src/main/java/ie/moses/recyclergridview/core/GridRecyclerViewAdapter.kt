@@ -27,13 +27,13 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
      * TODO: What to do when the client wants to make is the the viewType, e.g. maybe every second
      * row should be different, e.g. one profile pic every other row then the normal row size for the others.
      * */
-    abstract fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder
+    protected abstract fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder
 
-    abstract fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
+    protected abstract fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
-    abstract fun onBindEmptyRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
+    protected abstract fun onBindEmptyRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
-    abstract fun getRowItemType(position: Int): Int
+    protected open fun getRowItemType(position: Int) = 0
 
     /**
      * TODO: Number type conversions are bullshit.

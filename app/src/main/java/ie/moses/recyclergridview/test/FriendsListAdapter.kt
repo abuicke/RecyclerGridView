@@ -3,7 +3,6 @@ package ie.moses.recyclergridview.test
 import android.content.Context
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import ie.moses.recyclergridview.R
@@ -37,10 +36,7 @@ class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: Lis
         rowHolder.views[column].visibility = View.INVISIBLE
     }
 
-    /**
-     * TODO: Don't make abstract in parent class.
-     * */
-    override fun getRowItemType(position: Int) = 0
+    override fun getRowItemType(position: Int) = position % 2
 
     inner class ViewHolder(itemView: ViewGroup) : RecyclerView.ViewHolder(itemView) {
 

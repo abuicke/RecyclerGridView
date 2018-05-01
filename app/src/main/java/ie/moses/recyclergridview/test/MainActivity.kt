@@ -3,14 +3,10 @@ package ie.moses.recyclergridview.test
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import ie.moses.recyclergridview.R
 import ie.moses.recyclergridview.core.OnItemClickListener
-import ie.moses.recyclergridview.util.Cantor
-import ie.moses.recyclergridview.util.cantorFunction
 import ie.moses.recyclergridview.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 toast("Selected " + data[index].first)
             }
         })
+        adapter.rowSize = 1
         recyclerView.adapter = adapter
 
         Thread(Runnable {
