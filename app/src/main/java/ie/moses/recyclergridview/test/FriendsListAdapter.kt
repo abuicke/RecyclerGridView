@@ -17,7 +17,7 @@ class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: Lis
         private val TAG = FriendsListAdapter::class.simpleName
     }
 
-    override fun onCreateRowViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder {
         @LayoutRes val gridRowId = R.layout.grid_row
         val layout = inflater.inflate(gridRowId, parent, false) as ViewGroup
         return ViewHolder(layout)
@@ -36,6 +36,11 @@ class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: Lis
     override fun onBindEmptyRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int) {
         rowHolder.views[column].visibility = View.INVISIBLE
     }
+
+    /**
+     * TODO: Don't make abstract in parent class.
+     * */
+    override fun getRowItemType(position: Int) = 0
 
     inner class ViewHolder(itemView: ViewGroup) : RecyclerView.ViewHolder(itemView) {
 

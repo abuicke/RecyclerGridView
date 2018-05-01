@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.annotation.IntRange
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import ie.moses.recyclergridview.util.Cantor
 import ie.moses.recyclergridview.util.roundUp
 
 abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
@@ -14,9 +15,10 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
         private val TAG = GridRecyclerViewAdapter::class.simpleName
     }
 
+    @get:IntRange(from = 1)
     var rowSize: Int = 3
         set(value) {
-            if(value < 1) throw IllegalArgumentException("row size must be at least 1")
+            if (value < 1) throw IllegalArgumentException("row size must be at least 1")
             field = value
             notifyDataSetChanged()
         }
@@ -25,16 +27,26 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
      * TODO: What to do when the client wants to make is the the viewType, e.g. maybe every second
      * row should be different, e.g. one profile pic every other row then the normal row size for the others.
      * */
-    abstract fun onCreateRowViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
+    abstract fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder
 
     abstract fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
     abstract fun onBindEmptyRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
-    final override fun getItemViewType(position: Int): Int = rowSize
+    abstract fun getRowItemType(position: Int): Int
+
+    /**
+     * TODO: Number type conversions are bullshit.
+     * */
+    final override fun getItemViewType(position: Int): Int =
+            Cantor.pair(rowSize.toLong(), getRowItemType(position).toLong()).toInt()
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return onCreateRowViewHolder(parent, viewType)
+        /**
+         * TODO: All these number type conversaions are retarded and can I override first and second
+         * fields in Pair?
+         * */
+        return onCreateRowViewHolder(parent, Cantor.depair(viewType.toLong()).second.toInt())
     }
 
     final override fun onBindViewHolder(holder: ViewHolder, row: Int) {
