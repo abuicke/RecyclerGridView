@@ -59,10 +59,7 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
             }
         }
     }
-
-    /**
-     * TODO: Test to see of both these have to be doubles.
-     * */
-    final override fun getItemCount(): Int = (data.size.toDouble() / rowSize.toDouble()).roundUp()
+    
+    final override fun getItemCount() = (data.size.toDouble() / rowSize).roundUp()
 
 }
