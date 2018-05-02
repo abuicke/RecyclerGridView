@@ -25,6 +25,9 @@ class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: Lis
     override fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int) {
         val friendView = rowHolder.views[column]
         friendView.visibility = View.VISIBLE
+        /*
+        * TODO: The click listener stuff is still very clunky.
+        * */
         friendView.setOnClickListener({ onItemClickListener?.onItemClick(index) })
 
         val facebookFriend = data[index]
@@ -36,7 +39,7 @@ class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: Lis
         rowHolder.views[column].visibility = View.INVISIBLE
     }
 
-    override fun getRowItemType(position: Int) = position % 2
+    override fun getRowType(position: Int) = position % 2
 
     inner class ViewHolder(itemView: ViewGroup) : RecyclerView.ViewHolder(itemView) {
 

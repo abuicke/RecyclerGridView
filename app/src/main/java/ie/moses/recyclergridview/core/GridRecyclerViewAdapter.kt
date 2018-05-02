@@ -15,38 +15,37 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
         private val TAG = GridRecyclerViewAdapter::class.simpleName
     }
 
-    @get:IntRange(from = 1)
+    @get:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
+    @setparam:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     var rowSize: Int = 3
         set(value) {
             if (value < 1) throw IllegalArgumentException("row size must be at least 1")
+            if (value > Cantor.MAX_INTEGER) throw IllegalArgumentException("row size cannot exceed ${Cantor.MAX_INTEGER}")
             field = value
             notifyDataSetChanged()
         }
 
-    /**
-     * TODO: What to do when the client wants to make is the the viewType, e.g. maybe every second
-     * row should be different, e.g. one profile pic every other row then the normal row size for the others.
-     * */
     protected abstract fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder
 
     protected abstract fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
     protected abstract fun onBindEmptyRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int)
 
-    protected open fun getRowItemType(position: Int) = 0
+    @IntRange(from = 0, to = Cantor.MAX_INTEGER.toLong())
+    protected open fun getRowType(position: Int) = 0
 
-    /**
-     * TODO: Number type conversions are bullshit.
-     * */
-    final override fun getItemViewType(position: Int): Int =
-            Cantor.pair(rowSize.toLong(), getRowItemType(position).toLong()).toInt()
+    final override fun getItemViewType(position: Int): Int {
+        val rowType = getRowType(position)
+        if (rowType > Cantor.MAX_INTEGER.toLong()) {
+            throw IllegalStateException("$TAG.getItemViewType(Int) must return a value " +
+                    "between 0 and ${Cantor.MAX_INTEGER.toLong()}, instead returned $rowType")
+        }
+
+        return Cantor.pair(rowSize, rowType)
+    }
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        /**
-         * TODO: Cantor depairing is messy, needs to be cleaned up, probably shouldn't be using
-         * Pair as Pair.second is ambiguous.
-         * */
-        return onCreateRowViewHolder(parent, Cantor.depair(viewType.toLong()).second.toInt())
+        return onCreateRowViewHolder(parent, Cantor.depair(viewType).second)
     }
 
     final override fun onBindViewHolder(holder: ViewHolder, row: Int) {
