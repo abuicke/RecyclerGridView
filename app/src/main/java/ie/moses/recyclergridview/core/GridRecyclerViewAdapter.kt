@@ -43,8 +43,8 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         /**
-         * TODO: All these number type conversions are retarded and can I override first and second
-         * fields in Pair?
+         * TODO: Cantor depairing is messy, needs to be cleaned up, probably shouldn't be using
+         * Pair as Pair.second is ambiguous.
          * */
         return onCreateRowViewHolder(parent, Cantor.depair(viewType.toLong()).second.toInt())
     }
