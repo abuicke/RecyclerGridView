@@ -9,8 +9,8 @@ import ie.moses.recyclergridview.R
 import ie.moses.recyclergridview.core.GridRecyclerViewAdapter
 import ie.moses.recyclergridview.core.OnItemClickListener
 
-class FriendsListAdapter(context: Context, recyclerView: RecyclerView, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
-        GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, recyclerView, data, listener) {
+class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
+        GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, data, listener) {
 
     companion object {
         private val TAG = FriendsListAdapter::class.simpleName

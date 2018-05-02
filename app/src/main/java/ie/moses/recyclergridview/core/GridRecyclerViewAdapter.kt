@@ -8,13 +8,13 @@ import ie.moses.recyclergridview.util.Cantor
 import ie.moses.recyclergridview.util.roundUp
 
 abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
-        context: Context, recyclerView: RecyclerView, data: List<T>, listener: OnItemClickListener? = null) :
-        RecyclerViewAdapter<ViewHolder, T>(context, recyclerView, data, listener) {
+        context: Context, data: List<T>, listener: OnItemClickListener? = null) :
+        RecyclerViewAdapter<ViewHolder, T>(context, data, listener) {
 
     companion object {
         private val TAG = GridRecyclerViewAdapter::class.simpleName
     }
-
+    
     @get:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     @setparam:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     var rowSize: Int = 3
