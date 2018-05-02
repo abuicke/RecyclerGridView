@@ -43,7 +43,7 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
 
     final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         /**
-         * TODO: All these number type conversaions are retarded and can I override first and second
+         * TODO: All these number type conversions are retarded and can I override first and second
          * fields in Pair?
          * */
         return onCreateRowViewHolder(parent, Cantor.depair(viewType.toLong()).second.toInt())
@@ -59,7 +59,7 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
             }
         }
     }
-    
+
     final override fun getItemCount() = (data.size.toDouble() / rowSize).roundUp()
 
 }
