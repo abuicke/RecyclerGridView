@@ -14,7 +14,7 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
     companion object {
         private val TAG = GridRecyclerViewAdapter::class.simpleName
     }
-    
+
     @get:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     @setparam:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     var rowSize: Int = 3
