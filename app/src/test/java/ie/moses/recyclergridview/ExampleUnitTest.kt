@@ -1,4 +1,4 @@
-package ie.moses.recyclergridview
+package ie.moses.testrecyclergridview
 
 import org.junit.Test
 

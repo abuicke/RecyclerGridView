@@ -1,4 +1,4 @@
-package ie.moses.recyclergridview
+package ie.moses.testrecyclergridview
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("ie.moses.recyclergridview", appContext.packageName)
+        assertEquals("ie.moses.testrecyclergridview", appContext.packageName)
     }
 }

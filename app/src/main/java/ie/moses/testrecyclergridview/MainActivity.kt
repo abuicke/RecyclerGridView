@@ -1,12 +1,9 @@
-package ie.moses.recyclergridview.test
+package ie.moses.testrecyclergridview
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
-import ie.moses.recyclergridview.R
 import ie.moses.recyclergridview.core.OnItemClickListener
-import ie.moses.recyclergridview.util.Cantor
 import ie.moses.recyclergridview.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -40,7 +37,6 @@ class MainActivity : AppCompatActivity() {
                 toast("Selected " + data[index].first)
             }
         })
-
         recyclerView.adapter = adapter
 
         Thread(Runnable {

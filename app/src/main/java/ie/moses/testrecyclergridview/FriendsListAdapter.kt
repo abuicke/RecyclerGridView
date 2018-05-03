@@ -1,11 +1,10 @@
-package ie.moses.recyclergridview.test
+package ie.moses.testrecyclergridview
 
 import android.content.Context
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import ie.moses.recyclergridview.R
 import ie.moses.recyclergridview.core.GridRecyclerViewAdapter
 import ie.moses.recyclergridview.core.OnItemClickListener
 
