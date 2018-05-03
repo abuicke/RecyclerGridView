@@ -37,10 +37,11 @@ class MainActivity : AppCompatActivity() {
                 toast("Selected " + data[index].first)
             }
         })
+        adapter.rowSize = 1
         recyclerView.adapter = adapter
 
         Thread(Runnable {
-            for (i in 1..6) {
+            for (i in 1..5) {
                 Thread.sleep(2000)
                 runOnUiThread({ adapter.rowSize = i })
             }
