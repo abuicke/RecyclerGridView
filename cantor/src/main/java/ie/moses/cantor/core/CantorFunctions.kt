@@ -1,10 +1,9 @@
-package ie.moses.recyclergridview.util
+package ie.moses.cantor.core
 
 import android.support.annotation.IntRange
+import ie.moses.cantor.util.isNaturalNumber
 
 /**
- * TODO: Make cantor separate library.
- *
  * @see <a href="https://gist.github.com/ben-howe/db4cd03ef0149725f5a5d71b95a0f72a"/>
  * */
 object Cantor {

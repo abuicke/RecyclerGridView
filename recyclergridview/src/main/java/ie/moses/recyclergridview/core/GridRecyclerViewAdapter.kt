@@ -4,8 +4,10 @@ import android.content.Context
 import android.support.annotation.IntRange
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import ie.moses.recyclergridview.util.Cantor
+import ie.moses.cantor.core.Cantor
 import ie.moses.recyclergridview.util.roundUp
+import ie.moses.recyclerviewadapter.core.OnItemClickListener
+import ie.moses.recyclerviewadapter.core.RecyclerViewAdapter
 
 abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
         context: Context, data: List<T>, listener: OnItemClickListener? = null) :

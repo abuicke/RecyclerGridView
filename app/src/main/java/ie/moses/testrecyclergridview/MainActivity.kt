@@ -3,8 +3,8 @@ package ie.moses.testrecyclergridview
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import ie.moses.recyclergridview.core.OnItemClickListener
 import ie.moses.recyclergridview.util.toast
+import ie.moses.recyclerviewadapter.core.OnItemClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

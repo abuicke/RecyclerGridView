@@ -1,1 +1,1 @@
-include ':app', ':recyclergridview'
+include ':app', ':recyclergridview', ':recyclerviewadapter', ':cantor', ':util'
