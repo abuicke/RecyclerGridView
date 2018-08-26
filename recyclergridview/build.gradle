@@ -34,7 +34,8 @@ android {
 
 dependencies {
     api project(':recyclerviewadapter')
-    implementation 'ie.moses.cantor:cantor:1.0.0'
+    debugImplementation project(":cantor")
+    releaseImplementation 'ie.moses.cantor:cantor:1.0.0'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
