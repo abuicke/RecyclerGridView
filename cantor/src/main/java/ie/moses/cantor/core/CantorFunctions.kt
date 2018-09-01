@@ -18,8 +18,6 @@ object Cantor {
         //Creating an array of the two inputs for comparison later
         val pair = Pair(a, b)
 
-        str = "and" + "and"
-
         //Using Cantors paring function to generate unique number
         val result = (0.5 * (a + b).toDouble() * (a + b + 1).toDouble() + b).toInt()
 
