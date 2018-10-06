@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
                 Pair("David Choe", "https://vz.cnwimg.com/thumbc-300x300/wp-content/uploads/2014/10/GettyImages-450993059.jpg"),
                 Pair("Batman", "https://pbs.twimg.com/profile_images/874661809139073025/X8yzIhNy_400x400.jpg"),
                 Pair("Donald Trump", "https://www.usmagazine.com/wp-content/uploads/2017/12/donald-trump-michael-flynn.jpg?w=800&h=800&crop=1"),
-                Pair("Albert Einstein", "https://pbs.twimg.com/profile_images/3603569381/41aca9d1b837d559a5f9ad3680893ce1_400x400.jpeg"),
+                Pair("Albert Einstein", "https://www.biography.com/.image/t_share/MTE5NDg0MDU0OTU2OTAxOTAz/albert-einstein-9285408-1-402.jpg"),
                 Pair("Elon Musk", "https://static.dezeen.com/uploads/2018/01/elon-musk-public-transit-dezeen-2364-sq.jpg"),
                 Pair("Edward Sharpe", "https://i1.wp.com/octopusmediaink.com/wp-content/uploads/2012/05/edward-sharpe-and-the-magnetic-zeros-200x200.jpg?resize=200%2C200"),
                 Pair("Buddha", "https://omtimes.com/wp-content/uploads/2012/02/Buddha-explains-true-love_OM-Times.jpg"),
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         Thread(Runnable {
             for (i in 1..5) {
                 Thread.sleep(2000)
-                runOnUiThread({ adapter.rowSize = i })
+                runOnUiThread { adapter.rowSize = i }
             }
         }).start()
     }
