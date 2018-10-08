@@ -11,7 +11,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/cantor" />
             <option value="$PROJECT_DIR$/recyclergridview" />
-            <option value="$PROJECT_DIR$/recyclerviewadapter" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

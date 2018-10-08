@@ -21,9 +21,6 @@ android {
 }
 
 dependencies {
-    debugImplementation project(':recyclerviewadapter')
-    releaseImplementation 'ie.moses.recyclerviewadapter:recyclerviewadapter:1.0.0'
-
     debugImplementation project(":cantor")
     releaseImplementation 'ie.moses.cantor:cantor:1.0.0'
 

@@ -5,8 +5,8 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import ie.moses.recyclergridview.core.GridRecyclerViewAdapter
-import ie.moses.recyclerviewadapter.core.OnItemClickListener
+import ie.moses.recyclergridview.GridRecyclerViewAdapter
+import ie.moses.recyclergridview.util.OnItemClickListener
 
 class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
         GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, data, listener) {
