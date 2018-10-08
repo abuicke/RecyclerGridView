@@ -1,4 +1,4 @@
 # RecyclerGridView
-A grid view adapted from reycler view
+A grid view adapted from recycler view
 
-![submit succeed](https://raw.githubusercontent.com/abuicke/RecyclerGridView/v1.0.3/example.gif)
+![example usage](https://raw.githubusercontent.com/abuicke/RecyclerGridView/v1.0.3/example.gif)

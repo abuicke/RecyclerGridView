@@ -5,15 +5,11 @@ import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import ie.moses.recyclergridview.core.GridRecyclerViewAdapter
-import ie.moses.recyclergridview.core.OnItemClickListener
+import ie.moses.recyclergridview.GridRecyclerViewAdapter
+import ie.moses.recyclergridview.OnItemClickListener
 
 class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, listener: OnItemClickListener?) :
         GridRecyclerViewAdapter<FriendsListAdapter.ViewHolder, Pair<String, String>>(context, data, listener) {
-
-    companion object {
-        private val TAG = FriendsListAdapter::class.simpleName
-    }
 
     override fun onCreateRowViewHolder(parent: ViewGroup, rowType: Int): ViewHolder {
         @LayoutRes val gridRowId = R.layout.grid_row
@@ -24,10 +20,7 @@ class FriendsListAdapter(context: Context, data: List<Pair<String, String>>, lis
     override fun onBindRowItem(rowHolder: ViewHolder, row: Int, column: Int, index: Int) {
         val friendView = rowHolder.views[column]
         friendView.visibility = View.VISIBLE
-        /*
-        * TODO: The click listener stuff is still very clunky.
-        * */
-        friendView.setOnClickListener({ onItemClickListener?.onItemClick(index) })
+        friendView.setOnClickListener { onItemClickListener?.onItemClick(index) }
 
         val facebookFriend = data[index]
         friendView.setName(facebookFriend.first)
