@@ -4,10 +4,10 @@ import android.content.Context
 import android.support.annotation.IntRange
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import ie.moses.cantor.core.Cantor
-import ie.moses.recyclergridview.util.roundUp
+import ie.moses.cantor.Cantor
 import ie.moses.recyclergridview.util.OnItemClickListener
 import ie.moses.recyclergridview.util.RecyclerViewAdapter
+import ie.moses.recyclergridview.util.roundUp
 
 abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
         context: Context, data: List<T>, listener: OnItemClickListener? = null) :
@@ -21,8 +21,12 @@ abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T :
     @setparam:IntRange(from = 1, to = Cantor.MAX_INTEGER.toLong())
     var rowSize: Int = 3
         set(value) {
-            if (value < 1) throw IllegalArgumentException("row size must be at least 1")
-            if (value > Cantor.MAX_INTEGER) throw IllegalArgumentException("row size cannot exceed ${Cantor.MAX_INTEGER}")
+            if (value < 1) {
+                throw IllegalArgumentException("row size must be at least 1")
+            }
+            if (value > Cantor.MAX_INTEGER) {
+                throw IllegalArgumentException("row size cannot exceed ${Cantor.MAX_INTEGER}")
+            }
             field = value
             notifyDataSetChanged()
         }
