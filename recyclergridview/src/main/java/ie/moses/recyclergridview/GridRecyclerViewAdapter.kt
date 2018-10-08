@@ -3,11 +3,16 @@ package ie.moses.recyclergridview
 import android.content.Context
 import android.support.annotation.IntRange
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import ie.moses.cantor.Cantor
-import ie.moses.recyclergridview.util.OnItemClickListener
-import ie.moses.recyclergridview.util.RecyclerViewAdapter
-import ie.moses.recyclergridview.util.roundUp
+
+abstract class RecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
+        context: Context, protected var data: List<T>, protected var onItemClickListener: OnItemClickListener?)
+    : RecyclerView.Adapter<ViewHolder>() {
+
+    protected var inflater: LayoutInflater = LayoutInflater.from(context)
+}
 
 abstract class GridRecyclerViewAdapter<ViewHolder : RecyclerView.ViewHolder, T : Any>(
         context: Context, data: List<T>, listener: OnItemClickListener? = null) :

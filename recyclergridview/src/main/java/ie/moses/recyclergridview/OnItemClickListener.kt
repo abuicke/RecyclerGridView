@@ -1,4 +1,4 @@
-package ie.moses.recyclergridview.util
+package ie.moses.recyclergridview
 
 interface OnItemClickListener {
 
