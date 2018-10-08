@@ -1,7 +1,7 @@
 # RecyclerGridView
 A recycler view adapter which supports a grid structure.
 
-![example usage](https://raw.githubusercontent.com/abuicke/RecyclerGridView/v1.0.3/example.gif)
+![example usage](https://raw.githubusercontent.com/abuicke/RecyclerGridView/master/example.gif)
 
 Download
 --------
