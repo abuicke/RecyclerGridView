@@ -1,5 +1,5 @@
 # RecyclerGridView
-A recycler view adapter which supports a grid structure.
+A recycler view adapter which supports a grid structure, implemented in Kotlin.
 
 ![example usage](https://raw.githubusercontent.com/abuicke/RecyclerGridView/master/example.gif)
 
