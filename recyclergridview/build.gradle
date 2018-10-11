@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 
 def version = '1.0.3'
 
-ext {
-    PUBLISH_GROUP_ID = 'ie.moses.recyclergridview'
-    PUBLISH_ARTIFACT_ID = 'recyclergridview'
-    PUBLISH_VERSION = version
-}
+    ext {
+        PUBLISH_GROUP_ID = 'ie.moses.recyclergridview'
+        PUBLISH_ARTIFACT_ID = 'recyclergridview'
+        PUBLISH_VERSION = version
+    }
 
 android {
     compileSdkVersion 27
